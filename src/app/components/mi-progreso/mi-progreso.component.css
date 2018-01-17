@@ -55,25 +55,21 @@
     font-size: 14px;
     color: #EC0000;
 }
-
 .premios-img{
-    border: #EC0000 solid 1px;
     padding: 10px;
+    border: #EC0000 solid 1px;
 }
-
 .clear-fix {
     padding: 5px;
 }
-
 .mis-premios {
-    font-family: Roboto-Medium;
-    font-size: 12px;
     color: #4E96FC;
-    letter-spacing: 0;
+    font-size: 12px;
     font-weight: 700;
+    letter-spacing: 0;
+    font-family: 'Roboto-Medium';
 }
-
 .iconos-premios {
-    max-width: 85%;
     height: auto;
+    max-width: 85%;
 }
