@@ -1,0 +1,19 @@
+.estiloregla{
+    align-content: center;
+    border-bottom: 1px solid rgba(178,178,178,0.60);
+    padding: 15px 0px;
+}
+
+.regla {
+    font-family: 'Roboto-Regular';
+    font-size: 14px;
+    color: #242424;
+    text-align: left;
+}
+
+.puntaje{
+    font-family: 'Roboto-Bold';
+    font-size: 18px;
+    color: #4E96FC;
+    text-align: right;
+}

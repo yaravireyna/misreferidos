@@ -1,0 +1,82 @@
+#estados {
+    margin-bottom: 30px;
+}
+
+#estados-iconos{
+    margin-left: 10%; 
+}
+
+.componente-captura-referido {
+    width: 100%;
+}
+
+.descripcion-estado {
+    color: #ec0000;
+    font-size: 12px;
+}
+
+.vertical-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.circle {
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    /* font-size: 14px; 
+    line-height: 1.42; */
+    border: 3px solid #F2F2F2 !important;
+    border-radius: 50% !important;
+    /* cursor: pointer; */
+}
+
+.circle-active {
+    color: #ec0000;
+    background: #fff;
+    border: solid 4px #ec0000 !important;  
+}
+
+.circle.inactive {
+    color: #b2b2b2;
+    background: #fff;
+    border: solid 4px #b2b2b2 !important;
+}
+
+.icon-lg {
+    font-size: 16px !important;
+}
+
+.line {
+    width: 64px;
+    height: 3px;
+    background: #F2F2F2;
+}
+
+.line-active {
+    background: #EC0000;
+}
+
+.line-inactive {
+    background: #F2F2F2;
+}
+
+::ng-deep snack-bar-container.success-snackbar {
+    background: rgba(255,159,50,0.95);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.30);
+    font-size: 14px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+::ng-deep snack-bar-container.blue-snackbar {
+    background: rgba(78,150,252,0.95);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.30);
+    font-size: 14px;
+    color: #FFFFFF;
+    text-align: center;
+}

@@ -1,0 +1,91 @@
+#ayuda{
+    font-size: 20px;
+}
+#ccp {
+    padding: 5px;
+}
+
+#datos-iniciales-container {
+    background: #FFFFFF;
+    border-bottom: 2px solid black;
+}
+
+#fab-agregar-referido {
+    font-size: 25px;
+}
+
+#inicio-container {
+    position: absolute;    
+    padding: 16px 16px 32px 16px;
+}
+
+#loader {
+    padding-top: 30px;
+}
+
+#nombre {
+    color: #242424;
+    font-size: 16px;    
+    letter-spacing: 0;
+}
+
+#ranking-aprobados {
+    color: #3796FF;
+    font-size: 14px;
+    letter-spacing: 0;
+}
+
+#ranking-restantes {
+    color: #000000;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 16px;
+}
+
+#titulo-ultimos-referidos {
+    color: #242424;
+    font-size: 14px;    
+    letter-spacing: 0;
+}
+
+#ultimos-referidos-container {
+    background: #FFFFFF;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.30);
+    height: 100%;
+    width: 100%;
+}
+
+#ultimos-referidos-container li{
+    font-size: 14px;
+    color: #5E606C;
+    letter-spacing: 0;
+    line-height: 12px;
+}
+
+.alineacion-boton {
+    text-align: right;
+    margin-bottom: 5px;
+}
+
+.datos-principales {
+    margin: 0;
+    padding: 0;
+}
+
+.inicio-botones {
+    margin: 10px 0px;
+}
+
+.lista-referido-par {
+    background: rgba(242,242,242,0.60);
+}
+
+.mat-fab.mat-accent {
+    background-color: #EC0000;
+}
+
+.mat-mini-fab.mat-accent {
+    background-color: #FFFFFF;
+}
+

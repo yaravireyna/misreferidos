@@ -1,0 +1,25 @@
+#logo-santander{
+    position: absolute;
+    bottom: 0;    
+    width: 100%;
+}
+
+#splash-container {
+    background: #EC0000;
+    color: #FFFFFF;
+    position: absolute;
+}
+
+#splash-logo{
+    margin-top: 70%; 
+}
+
+#splash-logo h1{
+    font-size: 60px;
+}
+
+.titulo-referidos {
+    color: #FFFFFF;
+    font-size: 16px;
+    letter-spacing: 1px;
+}

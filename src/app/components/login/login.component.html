@@ -1,0 +1,35 @@
+<div class="col-sm-12 h-100 animated fast fadeIn" id="login-container">
+    <div class="h-50" id="login-logo" [ngStyle]="{'background-image': urlFondo}">
+        <h1><b>INICIAR SESIÓN</b></h1>
+    </div>
+    <div class="h-50" id="login-campos">
+        <div class="offset-1 col-10">
+            <form [formGroup]="forma" (ngSubmit)="login()">
+            <mat-form-field class="componente-login-form">
+                <input matInput placeholder="Usuario" type="text" formControlName="usuario">
+                <span matPrefix><i class="icono icon-user espace-icon"></i></span>
+                <mat-error *ngIf="forma.get('usuario').errors?.required">
+                    Usuario <strong>requerido</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="componente-login-form">
+                <input matInput placeholder="Contraseña" type="password" formControlName="password">
+                <span matPrefix><i class="icono icon-lock espace-icon"></i></span>
+                <mat-error *ngIf="forma.get('password').errors?.required">
+                    Contraseña <strong>requerida</strong>
+                </mat-error>
+            </mat-form-field>
+            <input type="hidden" formControlName="imei">
+            <button [disabled]="isLogin" type="submit" mat-raised-button class="boton-rojo componente-login-form">
+                <div *ngIf="isLogin">
+                    Autenticando...
+                </div>
+                <div *ngIf="! isLogin">
+                    Aceptar
+                </div>
+            </button>
+            <!--<p class="text-center" id="contrasenia-olvidada">No recuerdo mi contraseña</p>-->
+            </form>            
+        </div>
+    </div>
+  </div>

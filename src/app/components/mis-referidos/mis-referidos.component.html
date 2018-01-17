@@ -1,0 +1,56 @@
+<div class="h-70">
+    <mat-tab-group>
+        <mat-tab label="PARTICULAR">
+            <div class="tab-content">
+                <div *ngIf="isReferidos" id="loader">
+                    <mat-progress-spinner
+                        color="warn"
+                        mode="indeterminate"
+                        value="50">
+                    </mat-progress-spinner>
+                    <h2 class="text-center">Cargando...</h2>
+                </div>
+                <div *ngIf="! isReferidos">
+                    <div *ngIf="referidosParticular.length == 0">
+                        <h2 class="text-center">Sin datos</h2>
+                    </div>
+                    <div *ngIf="referidosParticular.length > 0">
+                        <div class="mis-referidos">
+                            <ul class="list-group">
+                                <li class="list-group-item" *ngFor="let referido of referidosParticular; let i = index;" [ngClass]="{'lista-referido-par': i%2 == 0}">
+                                    <div (click)="muestraDetalle(referido)" *ngIf="referido.tipo == TIPO_PARTICULAR">{{referido.nombre}} {{referido.apPat}} {{referido.apMat}} <span class="float-right puntaje"><i class="icono icon-arrownext-1"></i></span></div>
+                                </li>   
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="PYME">
+            <div class="tab-content">
+                <div *ngIf="isReferidos" id="loader">
+                <mat-progress-spinner
+                    color="warn"
+                    mode="indeterminate"
+                    value="50">
+                </mat-progress-spinner>
+                <h2 class="text-center">Cargando...</h2>
+                </div>
+                <div *ngIf="! isReferidos">
+                <div *ngIf="referidosPyme.length == 0">
+                    <h2 class="text-center">Sin datos</h2>
+                </div>
+                <div *ngIf="referidosPyme.length > 0">
+                    <div class="mis-referidos">
+                        <ul class="list-group">
+                            <li class="list-group-item" *ngFor="let referido of referidosPyme; let i = index;" [ngClass]="{'lista-referido-par': i%2 == 0}">
+                                 <div (click)="muestraDetalle(referido)" *ngIf="referido.tipo == TIPO_PYME">{{referido.razonSocial}} <span class="float-right puntaje"><i class="icono icon-arrownext-1"></i></span></div>
+                            </li>                    
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>    
+</div>

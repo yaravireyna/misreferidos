@@ -1,0 +1,62 @@
+#vencer {
+    display:inline;
+    border: 1px solid rgba(178,178,178,0.60);
+}
+
+#progreso {
+    display: inline;
+    border: 1px solid rgba(178,178,178,0.60);
+}
+
+#premios {
+    display: inline;
+    border: 1px solid rgba(178,178,178,0.60);
+}
+
+.col-3 {
+    padding: 0px;
+}
+
+.col-12 {
+    display: flex;
+    padding: 0px;
+}
+
+.separador {
+    border-bottom: black dotted 2px;
+    margin: 20px 0px;
+}
+
+.titulo {
+    font-family: 'Roboto-Medium';
+    font-size: 14px;
+    color: #5E606C;
+    letter-spacing: 0;
+    padding-left: 10px;
+
+}
+
+.t1 {
+    font-family: 'Roboto-Regular';
+    font-size: 14px;
+    color: #242424;
+    text-align: left;
+}
+
+.t2 {
+    font-family: 'Roboto-Medium';
+    font-size: 14px;
+    color: #B2B2B2;
+    text-align: left;
+}
+
+.t3 {
+    font-family: 'Roboto-Bold';
+    font-size: 14px;
+    color: #EC0000;
+}
+
+.premios-img{
+    border: #EC0000 solid 1px;
+    padding: 10px;
+}

@@ -1,0 +1,44 @@
+#ranking-aprobados {
+    color: #3796FF;
+    font-size: 14px;
+    font-weight: bold;  
+    letter-spacing: 0;  
+    line-height: 16px;         
+}
+
+#ranking-referidos {
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 16px;    
+}
+
+.leyenda-ranking {
+    color: #5E606C;
+    font-size: 14px;    
+    letter-spacing: 0;
+    line-height: 12px;
+}
+
+.lista-referido-par {
+    background: rgba(242,242,242,0.60);
+}
+
+.mis-referidos {
+    background: #FFFFFF;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.30);
+    margin: 8px;
+}
+
+.mis-referidos li{
+    font-size: 14px;
+    color: #5E606C;
+    letter-spacing: 0;
+    line-height: 12px;
+}
+
+.puntaje {
+    color:#007bff;
+}

@@ -1,0 +1,19 @@
+#confirmacion-container {
+    background: #FFFFFF;
+    position: absolute;
+}
+
+#confirmacion-logo {
+    margin-top: 70%;
+}
+
+#confirmacion-logo h1{
+    font-size: 60px;
+}
+
+#titulo-confirmacion {
+    color: #242424;
+    font-size: 22px;    
+    letter-spacing: 0;
+    line-height: 28px;
+}

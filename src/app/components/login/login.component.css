@@ -1,0 +1,57 @@
+#contrasenia-olvidada {
+    color: #B2B2B2;
+    font-size: 13px;    
+    letter-spacing: 0;
+    margin-top: 20px;
+}
+
+#login-campos input{
+    color: #B2B2B2;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 12px;    
+}
+
+#login-container {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    box-shadow: 20px 20px 20px 20px;
+    border-radius: 0px 55px 0px 0px;    
+}
+
+#login-logo {
+    align-items: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+}
+
+#login-logo > h1 {
+    color: #FFFFFF;
+    font-size: 13px;
+    letter-spacing: 0.93px;
+    margin-left: 32px
+}
+
+.componente-login-form {
+    margin-top: 15px;
+    width: 100%;
+}
+
+button[type=submit] {
+    margin-top: 20px;
+}
+
+.espace-icon {
+    padding: 6px;
+}
+
+::ng-deep snack-bar-container.success-snackbar {
+    background: rgba(255,159,50,0.95) !important;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.30) !important;
+    font-size: 14px !important;
+    color: #FFFFFF !important;
+    text-align: center !important;
+}

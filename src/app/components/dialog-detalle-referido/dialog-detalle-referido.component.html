@@ -1,0 +1,154 @@
+<div class="row">
+    <div class="col-2">
+        <a (click)="cerrar()"><i class="icono icon-arrowprev-1 text-danger"></i></a>
+    </div>
+    <div class="col-8">
+        <h6 class="text-center"><strong>Detalle referido</strong></h6>
+    </div>
+    <div class="col-2">
+        <a (click)="editarCamposParticular()" *ngIf="data.referido.tipo == TIPO_PARTICULAR && isDisabledCamposParticular"><i class="icono text-danger icon-edit"></i></a>
+        <a (click)="editarCamposPyme()" *ngIf="data.referido.tipo == TIPO_PYME && isDisabledCamposPyme"><i class="icono text-danger icon-edit"></i></a>
+
+        <a (click)="guardaReferidoParticular()" *ngIf="data.referido.tipo == TIPO_PARTICULAR && ! isDisabledCamposParticular"><i class="icono text-danger icon-validation-2"></i></a>
+        <a (click)="guardaReferidoPyme()" *ngIf="data.referido.tipo == TIPO_PYME && ! isDisabledCamposPyme"><i class="icono text-danger icon-validation-2"></i></a>
+    </div>
+</div>
+<mat-dialog-content>
+    <div class="row vertical-center" id="estados-iconos">
+        <div class="circle circle-active">
+            <i class="icono icon-notes icon-lg"></i>            
+        </div>
+        <div class="line line-inactive"></div>
+        <div class="circle circle-inactive">
+            <i class="icono icon-building icon-lg"></i>            
+        </div>
+        <div class="line line-inactive"></div>
+        <div class="circle circle-inactive">
+            <i class="icono icon-iso-santander icon-lg"></i>            
+        </div>
+    </div>
+    <div class="row" id="estados">
+        <div class="col-4 text-center">
+            <span class="descripcion-estado">Agregado</span>
+        </div>
+        <div class="col-4 text-center">
+            <span class="descripcion-estado">Visitado</span>
+        </div>
+        <div class="col-4 text-center">
+            <span class="descripcion-estado">¡Ya es cliente!</span>
+        </div>
+    </div>
+
+    <div id="editar-particular-container" *ngIf="data.referido.tipo == TIPO_PARTICULAR">
+        <form [formGroup]="formaParticular" class="captura-referido-form">
+            <mat-form-field class="componente-captura-referido">
+                <input matInput placeholder="Nombre" type="text" formControlName="nombre">
+                <mat-error *ngIf="formaParticular.get('nombre').errors?.required">
+                    Nombre <strong>requerido</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="componente-captura-referido">
+                <input matInput placeholder="Apellido paterno" type="text" formControlName="appat">
+                <mat-error *ngIf="formaParticular.get('appat').errors?.required">
+                    Apellido <strong>requerido</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="componente-captura-referido">
+                <input matInput placeholder="Apellido materno" type="text" formControlName="apmat">
+                <mat-error *ngIf="formaParticular.get('apmat').errors?.required">
+                    Apellido <strong>requerido</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="componente-captura-referido">
+                <input matInput placeholder="Fecha de nacimiento" type="text" formControlName="fechaNacimiento">
+                <mat-error *ngIf="formaParticular.get('fechaNacimiento').errors?.required">
+                    Fecha de nacimiento <strong>requerida</strong>
+                </mat-error>
+                <mat-error *ngIf="formaParticular.get('fechaNacimiento').errors?.fechaInvalida">
+                    Fecha de nacimiento <strong>invalida</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="componente-captura-referido">
+                <input matInput placeholder="Correo" type="email" formControlName="correo">
+                <mat-error *ngIf="formaParticular.get('correo').errors?.required">
+                    Correo <strong>requerido</strong>
+                </mat-error>
+                <mat-error *ngIf="formaParticular.get('correo').errors?.pattern">
+                    Correo no valido
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="componente-captura-referido">
+                <input matInput placeholder="Teléfono" type="text" formControlName="telefono">                            
+                <mat-error *ngIf="formaParticular.get('telefono').errors?.required">
+                    Teléfono <strong>requerido</strong>
+                </mat-error>
+                <mat-error *ngIf="formaParticular.get('telefono').errors?.pattern">
+                    Teléfono <strong>no valido</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="componente-captura-referido">
+                <input matInput placeholder="RFC" type="text" formControlName="rfc">
+            </mat-form-field>
+            <input type="hidden" formControlName="id">        
+        </form>            
+    </div>
+    <div id="editar-pyme-container" *ngIf="data.referido.tipo == TIPO_PYME">
+        <form [formGroup]="formaPyme" class="captura-referido-form">
+            <mat-form-field class="componente-captura-referido">
+                <input matInput placeholder="Nombre" type="text" formControlName="nombre">
+                <mat-error *ngIf="formaPyme.get('nombre').errors?.required">
+                    Nombre <strong>requerido</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="componente-captura-referido">
+                <input matInput placeholder="Apellido paterno" type="text" formControlName="appat">
+                <mat-error *ngIf="formaPyme.get('appat').errors?.required">
+                    Apellido <strong>requerido</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="componente-captura-referido">
+                <input matInput placeholder="Apellido materno" type="text" formControlName="apmat">
+                <mat-error *ngIf="formaPyme.get('apmat').errors?.required">
+                    Apellido <strong>requerido</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="componente-captura-referido">
+                <input matInput placeholder="Razón Social" type="text" formControlName="razonSocial">                            
+                <mat-error *ngIf="formaPyme.get('razonSocial').errors?.required">
+                    Razón Social <strong>requerido</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="componente-captura-referido">
+                <input matInput placeholder="Ventas anuales" type="text" formControlName="ventasAnuales">
+                <mat-error *ngIf="formaPyme.get('ventasAnuales').errors?.required">
+                    Ventas anuales <strong>requeridas</strong>
+                </mat-error>
+                <mat-error *ngIf="formaPyme.get('ventasAnuales').errors?.pattern">
+                    Ventas anuales <strong>no validas</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="componente-captura-referido">
+                <input matInput placeholder="Teléfono" type="email" formControlName="telefono">                            
+                <mat-error *ngIf="formaPyme.get('telefono').errors?.required">
+                    Teléfono <strong>requerido</strong>
+                </mat-error>
+                <mat-error *ngIf="formaPyme.get('telefono').errors?.pattern">
+                    Teléfono <strong>no valido</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="componente-captura-referido">
+                <input matInput placeholder="Correo" type="text" formControlName="correo">
+                <mat-error *ngIf="formaPyme.get('correo').errors?.pattern">
+                    Correo no valido
+                </mat-error>
+                <mat-error *ngIf="formaPyme.get('correo').errors?.required">
+                    Correo <strong>requerido</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="componente-captura-referido">
+                <input matInput placeholder="RFC" type="text" formControlName="rfc">
+            </mat-form-field>
+            <input type="hidden" formControlName="id">        
+        </form>            
+    </div>
+</mat-dialog-content>

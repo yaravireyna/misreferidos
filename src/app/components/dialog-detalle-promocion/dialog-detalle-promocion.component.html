@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-10">
+        <h6>{{data.titulo}}</h6>
+    </div>
+    <div class="col-2">
+        <a (click)="cerrar()"><i class="icono icon-error-2 text-danger"></i></a>
+    </div>
+</div>
+<mat-dialog-content>
+    <div class="col-sm-12 imagen_center">
+        <img class="img-fluid" src="assets/img/trophy_icon.svg">
+        
+        <p *ngIf="data.tipoPromocion == 1"><span class="texto">Vas en el puesto </span><span class="resaltado">{{data.puesto}}</span></p>
+        <p *ngIf="data.tipoPromocion != 1"><span class="resaltado-azul">{{data.totalClientes}} </span> / <span class="texto">{{data.totalReferidos}} Clientes</span></p>
+        
+        <p><span class="mensaje">{{data.mensaje}}</span></p>
+        <p [ngClass]="{'text-danger': data.tipoPromocion == 1}">{{data.vigencia}}</p>
+    </div>
+</mat-dialog-content>
