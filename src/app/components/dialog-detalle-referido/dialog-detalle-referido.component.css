@@ -3,7 +3,7 @@
 }
 
 #estados-iconos{
-    margin-left: 10%; 
+    margin-left: 5%; 
 }
 
 .componente-captura-referido {
@@ -25,13 +25,13 @@
 }
 
 .circle {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     text-align: center;
     /* font-size: 14px; 
     line-height: 1.42; */
     border: 3px solid #F2F2F2 !important;
-    border-radius: 50% !important;
+    border-radius: 50%;
     /* cursor: pointer; */
 }
 
