@@ -36,6 +36,7 @@ import { DialogDetalleSucursalComponent } from './components/dialog-detalle-sucu
 import { ReferidosService } from './services/referidos/referidos.service';
 import { SesionService } from './services/referidos/sesion.service';
 import { AutenticacionGuardService } from './services/referidos/autenticacion-guard.service';
+import { DialogPremiosComponent } from './components/dialog-premios/dialog-premios.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AutenticacionGuardService } from './services/referidos/autenticacion-gu
     DialogDetalleReferidoComponent,
     DialogBasesComponent,
     DialogDetallePromocionComponent,
-    DialogDetalleSucursalComponent
+    DialogDetalleSucursalComponent,
+    DialogPremiosComponent
   ],
   imports: [
     BrowserModule,
