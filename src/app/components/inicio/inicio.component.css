@@ -97,3 +97,7 @@
     flex-shrink: 0;
 }
 
+.row {
+    align-content: center;
+}
+
