@@ -13,6 +13,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 //Rutas
 import { APP_ROUTING }  from './app.routes'
@@ -31,7 +32,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { DialogBasesComponent } from './components/dialog-bases/dialog-bases.component';
 import { DialogDetallePromocionComponent } from './components/dialog-detalle-promocion/dialog-detalle-promocion.component';
 import { DialogDetalleSucursalComponent } from './components/dialog-detalle-sucursal/dialog-detalle-sucursal.component';
-
+import { TogleButtonComponent } from './components/togle-button/togle-button.component';
 //Referidos Services
 import { ReferidosService } from './services/referidos/referidos.service';
 import { SesionService } from './services/referidos/sesion.service';
@@ -52,7 +53,8 @@ import { DialogPremiosComponent } from './components/dialog-premios/dialog-premi
     DialogBasesComponent,
     DialogDetallePromocionComponent,
     DialogDetalleSucursalComponent,
-    DialogPremiosComponent
+    DialogPremiosComponent,
+    TogleButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +72,8 @@ import { DialogPremiosComponent } from './components/dialog-premios/dialog-premi
     MatProgressSpinnerModule,
     MatDialogModule,
     MatSelectModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatButtonToggleModule
   ],
   providers: [ 
                ReferidosService,
