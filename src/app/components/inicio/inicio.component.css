@@ -97,7 +97,10 @@
     flex-shrink: 0;
 }
 
-.row {
+.center {
     align-content: center;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+   
 }
-
