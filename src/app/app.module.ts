@@ -14,7 +14,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-
+import { MatExpansionModule } from '@angular/material/expansion';
 //Rutas
 import { APP_ROUTING }  from './app.routes'
 
@@ -38,6 +38,7 @@ import { ReferidosService } from './services/referidos/referidos.service';
 import { SesionService } from './services/referidos/sesion.service';
 import { AutenticacionGuardService } from './services/referidos/autenticacion-guard.service';
 import { DialogPremiosComponent } from './components/dialog-premios/dialog-premios.component';
+import { HeaderExpandedComponent } from './components/header-expanded/header-expanded.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { DialogPremiosComponent } from './components/dialog-premios/dialog-premi
     DialogDetallePromocionComponent,
     DialogDetalleSucursalComponent,
     DialogPremiosComponent,
-    TogleButtonComponent
+    TogleButtonComponent,
+    HeaderExpandedComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,8 @@ import { DialogPremiosComponent } from './components/dialog-premios/dialog-premi
     MatDialogModule,
     MatSelectModule,
     MatSnackBarModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatExpansionModule
   ],
   providers: [ 
                ReferidosService,
