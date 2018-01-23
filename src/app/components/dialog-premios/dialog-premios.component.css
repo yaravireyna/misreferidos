@@ -7,7 +7,7 @@
  .center-text-modal {
      text-align: center;
      word-wrap: break-word;
-     font-family: 'Roboto Regular';
+     font-family: 'OpenSans-Regular';
 }
  .carousel-indicators {
      left: 0;
@@ -40,4 +40,8 @@
 }
  .titulo-fecha {
      color: #aba6a6;
+}
+
+.font-titulo {
+     font-family: 'OpenSans-Bold';
 }
