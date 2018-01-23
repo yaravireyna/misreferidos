@@ -24,41 +24,36 @@
 }
 
 #nombre {
-    
-    font-size: 16px; 
-    color: #242424;   
+    color: #242424;
+    font-size: 16px;    
     letter-spacing: 0;
-    font-family: 'OpenSans-SemiBold';
-    
 }
 
 #ranking-aprobados {
-    font-size: 14px;
     color: #3796FF;
+    font-size: 14px;
     letter-spacing: 0;
-    font-family: 'OpenSans-SemiBold';
-    
 }
 
 #ranking-restantes {
-    font-size: 14px;
     color: #000000;
+    font-size: 14px;
     letter-spacing: 0;
     line-height: 16px;
 }
 
 #titulo-ultimos-referidos {
-    font-size: 14px;  
-    color: #242424;  
+    color: #242424;
+    font-size: 14px;    
     letter-spacing: 0;
 }
 
 #ultimos-referidos-container {
-    width: 100%;
-    height: 100%;
-    border-radius: 6px;
     background: #FFFFFF;
+    border-radius: 6px;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.30);
+    height: 100%;
+    width: 100%;
 }
 
 #ultimos-referidos-container li{
@@ -94,17 +89,18 @@
     background-color: #FFFFFF;
 }
 .mat-fab {
-    padding: 0;
+    min-width: 0;
+    border-radius: 50%;
     width: 48px;
     height: 48px;
-    min-width: 0;
+    padding: 0;
     flex-shrink: 0;
-    border-radius: 50%;
 }
 
 .center {
-    margin-top: 15px;
-    text-align: center;
-    margin-bottom: 10px;
     align-content: center;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+   
 }
