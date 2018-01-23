@@ -3,17 +3,18 @@
 }
 
 ::ng-deep snack-bar-container.success-snackbar {
-    background: rgba(255,159,50,0.95);
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.30);
+    
     font-size: 14px;
     color: #FFFFFF;
     text-align: center;
+    background: rgba(255,159,50,0.95);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.30);
 }
 
 ::ng-deep snack-bar-container.blue-snackbar {
-    background: rgba(78,150,252,0.95);
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.30);
     font-size: 14px;
     color: #FFFFFF;
     text-align: center;
+    background: rgba(78,150,252,0.95);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.30);
 }
