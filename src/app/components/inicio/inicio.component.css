@@ -27,6 +27,9 @@
     color: #242424;
     font-size: 16px;    
     letter-spacing: 0;
+    font-family: 'OpenSans-SemiBold';
+    /** Comentario*/
+
 }
 
 #ranking-aprobados {

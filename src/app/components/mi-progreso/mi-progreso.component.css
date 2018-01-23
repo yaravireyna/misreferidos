@@ -1,6 +1,8 @@
 #vencer {
     display:inline;
     border: 1px solid rgba(178,178,178,0.60);
+
+    /** Comentario*/
 }
 
 #progreso {

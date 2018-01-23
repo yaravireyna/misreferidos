@@ -1,7 +1,7 @@
 .imagen_center {
     text-align: center;
 }
-
+/** Comentario*/
 .imagen_center > img{
     width: 90%;
 }
