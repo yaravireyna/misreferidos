@@ -28,12 +28,16 @@
     font-size: 16px; 
     color: #242424;   
     letter-spacing: 0;
+    font-family: 'OpenSans-SemiBold';
+    
 }
 
 #ranking-aprobados {
     font-size: 14px;
     color: #3796FF;
     letter-spacing: 0;
+    font-family: 'OpenSans-SemiBold';
+    
 }
 
 #ranking-restantes {
