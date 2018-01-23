@@ -7,25 +7,25 @@
 }
 
 .texto {
-    font-family: 'Roboto-Medium';
     font-size: 16px;
     color: #B2B2B2;
+    font-family: 'OpenSans-SemiBold';
 }
 
 .resaltado {
-    font-family: 'Roboto-Medium';
     font-size: 16px;
     color: #EC0000;
+    font-family: 'OpenSans-SemiBold';
 }
 
 .resaltado-azul {
-    font-family: 'Roboto-Medium';
     font-size: 16px;
     color: #3796FF;
+    font-family: 'OpenSans-SemiBold';
 }
 
 .mensaje {
-    font-family: Roboto-Regular;
     font-size: 16px;
     color: #242424;
+    font-family: 'OpenSans-Regular';
 }
