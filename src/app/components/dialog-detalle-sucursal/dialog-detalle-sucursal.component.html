@@ -1,5 +1,19 @@
 <h2 mat-dialog-title class="text-center">{{data.sucursal.clave}} - {{data.sucursal.descripcion}}</h2>
 <mat-dialog-content>
+    <agm-map 
+        [latitude]="latitud"
+        [longitude]="longitud"
+        [zoom]="zoomMapa"
+        [disableDefaultUI]="false"
+        [zoomControl]="true">
+        <agm-marker
+            [latitude]="latitud"
+            [longitude]="longitud">
+            <agm-info-window>
+                <strong>{{data.sucursal.descripcion}}</strong>
+            </agm-info-window>
+        </agm-marker>
+    </agm-map>
     <p><strong>Dirección:</strong> {{data.sucursal.direccion}}</p>
     <p><strong>Disponibilidad: </strong> {{data.sucursal.horario}}</p>
     <p><strong>Contacto: </strong> {{data.sucursal.telefono}}</p>

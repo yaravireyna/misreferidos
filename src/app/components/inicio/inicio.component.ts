@@ -10,12 +10,35 @@ import { SesionService } from 'app/services/referidos/sesion.service';
 import { UsuarioFirmado } from 'app/interfaces/usuario-firmado'
 import { environment } from 'environments/environment';
 
+
+
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit{
+
+    public iniciales = document.getElementById('datos-iniciales');
+    
+
+   
+    // // var container = document.getElementById('container')
+    // iniciales.addEventListener('scroll', () => console.log('ev1'));
+    // container.addEventListener('scroll', () => console.log('ev2'))
+    // container.addEventListener('scroll', () => console.log('ev3'))
+
+    // $document.on('scroll', function() {
+    //     // do your things like logging the Y-axis
+    //     console.log($window.scrollY);
+    
+    //     // or pass this to the scope
+    //     $scope.$apply(function() {
+    //         $scope.pixelsScrolled = $window.scrollY;
+    //     })
+    // });
+    
+    
   public isUltimosReferidos:boolean = false;
   public isMiprogresoSeleccionado:boolean = true;
   public isMisReferidosSeleccionado:boolean = false;
@@ -85,4 +108,6 @@ export class InicioComponent implements OnInit{
             }
         });
   } 
+
+ 
 }

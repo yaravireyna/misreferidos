@@ -6,8 +6,15 @@
         <h6><strong>Nuevo referido</strong></h6>
     </div>
     <div class="col-2">
-        <a *ngIf="isParticularTabActive" (click)="guardaReferidoParticular()"><i class="icono icon-validation-2 text-danger"></i></a>
-        <a *ngIf="isPymeTabActive" (click)="guardaReferidoPyme()"><i class="icono icon-validation-2 text-danger"></i></a>
+        <a *ngIf="isParticularTabActive && !isParticular" (click)="guardaReferidoParticular()"><i class="icono icon-validation-2 text-danger"></i></a>
+        <a *ngIf="isPymeTabActive && ! isPyme" (click)="guardaReferidoPyme()"><i class="icono icon-validation-2 text-danger"></i></a>
+        <mat-progress-spinner
+            *ngIf="isParticular || isPyme"
+            [diameter]="35"
+            color="warn"
+            mode="indeterminate"
+            value="50">
+        </mat-progress-spinner>
     </div>
 </div>
 <mat-dialog-content>
