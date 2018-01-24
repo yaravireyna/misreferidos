@@ -88,8 +88,35 @@
             </mat-form-field>
             <mat-form-field class="componente-captura-referido">
                 <input matInput placeholder="RFC" type="text" formControlName="rfc">
+                <mat-error *ngIf="formaParticular.get('rfc').errors?.pattern">
+                    RFC <strong>no valido</strong>
+                </mat-error>
             </mat-form-field>
-            <input type="hidden" formControlName="id">        
+            <mat-form-field class="componente-captura-referido">
+                <mat-select [disabled]="isDisabledCamposParticular" placeholder="Region" (selectionChange)="getZonas(regionSeleccionadaParticular.value)" #regionSeleccionadaParticular value="{{data.referido.region}}">
+                    <mat-option *ngFor="let region of regionesParticular" [value]="region.clave">
+                    {{region.descripcion}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="componente-captura-referido">
+                <mat-select [disabled]="isDisabledCamposParticular" placeholder="Zona" (selectionChange)="getSucursales(zonaSeleccionadaParticular.value)" #zonaSeleccionadaParticular value="{{data.referido.zona}}">
+                    <mat-option *ngFor="let zona of zonasParticular" [value]="zona.clave">
+                    {{zona.descripcion}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="componente-captura-referido">
+                <mat-select placeholder="* Sucursal" formControlName="idSucursal" (selectionChange)="verDetalleSucursal(sucursalParticular.value)" #sucursalParticular>
+                    <mat-option *ngFor="let sucursal of sucursalesParticular" [value]="sucursal.clave">
+                    {{sucursal.descripcion}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="formaParticular.get('idSucursal').errors?.required">
+                    Sucursal <strong>requerida</strong>
+                </mat-error>
+            </mat-form-field>
+            <input type="hidden" formControlName="id">
         </form>            
     </div>
     <div id="editar-pyme-container" *ngIf="data.referido.tipo == TIPO_PYME">
@@ -147,6 +174,33 @@
             </mat-form-field>
             <mat-form-field class="componente-captura-referido">
                 <input matInput placeholder="RFC" type="text" formControlName="rfc">
+                <mat-error *ngIf="formaPyme.get('rfc').errors?.pattern">
+                    RFC <strong>no valido</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="componente-captura-referido">
+                <mat-select [disabled]="isDisabledCamposPyme" placeholder="Region" (selectionChange)="getZonas(regionSeleccionadaPyme.value)" #regionSeleccionadaPyme value="{{data.referido.region}}">
+                    <mat-option *ngFor="let region of regionesPyme" [value]="region.clave">
+                    {{region.descripcion}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="componente-captura-referido">
+                <mat-select [disabled]="isDisabledCamposPyme" placeholder="Zona" (selectionChange)="getSucursales(zonaSeleccionadaPyme.value)" #zonaSeleccionadaPyme value="{{data.referido.zona}}">
+                    <mat-option *ngFor="let zona of zonasPyme" [value]="zona.clave">
+                    {{zona.descripcion}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="componente-captura-referido">
+                <mat-select placeholder="* Sucursal" formControlName="idSucursal" (selectionChange)="verDetalleSucursal(sucursalPyme.value)" #sucursalPyme value="{{data.referido.sucursal}}">
+                    <mat-option *ngFor="let sucursal of sucursalesPyme" [value]="sucursal.clave">
+                    {{sucursal.descripcion}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="formaPyme.get('idSucursal').errors?.required">
+                    Sucursal <strong>requerida</strong>
+                </mat-error>
             </mat-form-field>
             <input type="hidden" formControlName="id">        
         </form>            

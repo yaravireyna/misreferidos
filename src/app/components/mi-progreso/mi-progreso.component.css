@@ -1,8 +1,6 @@
 #vencer {
     display:inline;
     border: 1px solid rgba(178,178,178,0.60);
-
-    /** Comentario*/
 }
 
 #progreso {
@@ -30,7 +28,7 @@
 }
 
 .titulo {
-    font-family: 'OpenSans-SemiBold';
+    font-family: 'OpenSans-SemiBold'; 
     font-size: 14px;
     color: #5E606C;
     letter-spacing: 0;
@@ -53,7 +51,7 @@
 }
 
 .t3 {
-    font-family: 'OpenSans-Bold';
+    font-family: 'OpenSans-Bold'; 
     font-size: 14px;
     color: #EC0000;
 }

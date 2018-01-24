@@ -8,15 +8,18 @@
 #datos-iniciales-container {
     background: #FFFFFF;
     border-bottom: 2px solid #d4c8c8;
+    padding-top: 16px;
 }
 
 #fab-agregar-referido {
+    background: #EC0000;
     font-size: 25px;
+    color: #FFFFFF;
 }
 
 #inicio-container {
     position: absolute;    
-    padding: 16px 16px 32px 16px;
+    padding: 0px 16px 32px 16px;
 }
 
 #loader {
@@ -27,9 +30,6 @@
     color: #242424;
     font-size: 16px;    
     letter-spacing: 0;
-    font-family: 'OpenSans-SemiBold';
-    /** Comentario*/
-
 }
 
 #ranking-aprobados {
@@ -106,4 +106,34 @@
     margin-top: 15px;
     margin-bottom: 10px;
    
+}
+
+mat-button-toggle {
+    color: #5E606C;
+    height: 40px;
+    font-family: 'Roboto Medium';
+    font-size: 16px;
+    text-align: center;
+    width: 150px;
+}
+
+.mat-button-toggle-checked {
+    background: #EC0000;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.30);
+    border-radius: 100px;
+    color: #FFFFFF;
+    font-family: 'Roboto Medium';
+    font-size: 16px;
+}  
+
+mat-button-toggle-group {
+    background: rgba(242,242,242,0.60);
+    box-shadow: none;
+    border-radius: 100px;
+    height: 40px;
+    width: 300px;
+}
+
+#menu-container {
+    margin: 20px 0px;
 }

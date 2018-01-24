@@ -1,13 +1,14 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 
 import { SesionService } from 'app/services/referidos/sesion.service';
 import { ReferidosService } from 'app/services/referidos/referidos.service';
 
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
+import { DialogDetalleSucursalComponent } from 'app/components/dialog-detalle-sucursal/dialog-detalle-sucursal.component';
 
 import { Referido } from 'app/interfaces/referido';
 import { UsuarioFirmado } from 'app/interfaces/usuario-firmado';
@@ -19,7 +20,7 @@ import { environment } from 'environments/environment';
   styleUrls: ['./dialog-detalle-referido.component.css']
 })
 
-export class DialogDetalleReferidoComponent {
+export class DialogDetalleReferidoComponent implements OnInit{
     public formaParticular:FormGroup;
     public formaPyme:FormGroup;
     private referido:Referido;
@@ -36,7 +37,14 @@ export class DialogDetalleReferidoComponent {
     
     public TIPO_PARTICULAR:number = environment.TIPO_PARTICULAR;
     public TIPO_PYME:number = environment.TIPO_PYME;
-        
+
+    public regionesParticular:any[] = [];
+    public regionesPyme:any[] = [];
+    public zonasParticular:any[] = [];
+    public zonasPyme:any[] = [];
+    public sucursalesParticular:any[] = [];
+    public sucursalesPyme:any[] = [];
+
     constructor(@Inject(MAT_DIALOG_DATA) public data: any,
                 private dialogRef:MatDialogRef<DialogDetalleReferidoComponent>,
                 private referidosService: ReferidosService,
@@ -45,7 +53,7 @@ export class DialogDetalleReferidoComponent {
                 public dialog: MatDialog,
                 public snackBar: MatSnackBar) { 
         this.usuarioFirmado = this.sesionService.getUsuarioFirmado();
-        
+        console.log(data);
         if (data.referido.tipo == this.TIPO_PARTICULAR) {
             this.formaParticular = new FormGroup({
                 'nombre': new FormControl({value: data.referido.nombre, disabled: this.isDisabledCamposParticular},  [
@@ -69,7 +77,12 @@ export class DialogDetalleReferidoComponent {
                                                 Validators.required,
                                                 Validators.pattern("^[0-9]+$")
                                                 ]),
-                'rfc': new FormControl({value: data.referido.rfc, disabled: this.isDisabledCamposParticular},  []),
+                'rfc': new FormControl({value: data.referido.rfc, disabled: this.isDisabledCamposParticular},  [
+                                                Validators.pattern("[a-zA-Z]{3,4}(\\d{6})[A-Za-z|\\d]{0,3}?")
+                                                ]),
+                'idSucursal': new FormControl({value: data.referido.sucursal, disabled: this.isDisabledCamposParticular} , [
+                                                Validators.required,
+                                            ]),
                 'id': new FormControl(data.referido.idProsp , [])
             });
         } else if (data.referido.tipo == this.TIPO_PYME) {
@@ -98,10 +111,84 @@ export class DialogDetalleReferidoComponent {
                                                 Validators.required,
                                                 Validators.pattern("^[0-9]+$")
                                                 ]),
-                'rfc': new FormControl({value: data.referido.rfc, disabled: this.isDisabledCamposPyme} , []),
+                'rfc': new FormControl({value: data.referido.rfc, disabled: this.isDisabledCamposPyme} , [
+                                                Validators.pattern("[a-zA-Z]{3,4}(\\d{6})[A-Za-z|\\d]{0,3}?")
+                                                ]),
+                'idSucursal': new FormControl({value: data.referido.sucursal, disabled: this.isDisabledCamposPyme} , [
+                                                Validators.required,
+                                            ]),
                 'id': new FormControl(data.referido.idProsp , [])
             });
         }
+    }
+
+    ngOnInit(){
+        this.getRegiones();
+    }
+
+    private getRegiones() {
+        let token = this.usuarioFirmado.token;
+        this.referidosService.getRegiones(token)
+                        .subscribe(res => {
+                            if (res.exitoso) {
+                                if (this.data.referido.tipo == this.TIPO_PARTICULAR) {
+                                    this.regionesParticular = res.datos;                                    
+                                } else if (this.data.referido.tipo == this.TIPO_PYME) {
+                                    this.regionesPyme = res.datos;
+                                }
+
+                                if (this.data.referido.region != 0) {
+                                    this.getZonas(this.data.referido.region);
+                                }
+                            } else {
+                                this.muestraAlertaReintento();
+                            }
+                        },
+                        error => {
+                            this.muestraAlertaReintento();
+                        });
+    }
+
+    public getZonas($idRegion) {
+        let token = this.usuarioFirmado.token;
+        this.referidosService.getZonas($idRegion, token)
+                        .subscribe(res => {
+                            if (res.exitoso) {
+                                if (this.data.referido.tipo == this.TIPO_PARTICULAR) {
+                                    this.zonasParticular = res.datos;
+                                } else if (this.data.referido.tipo == this.TIPO_PYME) {
+                                    this.zonasPyme = res.datos;
+                                }
+
+                                if (this.data.referido.zona != 0) {
+                                    this.getSucursales(this.data.referido.zona);
+                                }
+                            } else {
+                                this.muestraAlertaReintento();
+                            }
+                        },
+                        error => {
+                            this.muestraAlertaReintento();
+                        });
+    }
+
+    public getSucursales($idZona:string) {
+        let token = this.usuarioFirmado.token;
+        this.referidosService.getSucursales($idZona, token)
+                        .subscribe(res => {
+                            if (res.exitoso) {
+                                if (this.data.referido.tipo == this.TIPO_PARTICULAR) {
+                                    this.sucursalesParticular = res.datos;
+                                } else if (this.data.referido.tipo == this.TIPO_PYME) {
+                                    this.sucursalesPyme = res.datos;
+                                }
+                            } else {
+                                this.muestraAlertaReintento();
+                            }
+                        },
+                        error => {
+                            this.muestraAlertaReintento();
+                        });
     }
 
     public guardaReferidoParticular(){
@@ -125,7 +212,7 @@ export class DialogDetalleReferidoComponent {
                                 this.recargaMisReferidos = true;
                             } else {
                                 this.muestraAlertaReintento();
-                            }                        
+                            }
                         },
                         error => {
                             this.muestraAlertaReintento();
@@ -178,6 +265,7 @@ export class DialogDetalleReferidoComponent {
             this.formaParticular.get('correo').disable();
             this.formaParticular.get('telefono').disable();
             this.formaParticular.get('rfc').disable();
+            this.formaParticular.get('idSucursal').disable();
         } else {
             this.formaParticular.get('nombre').enable();
             this.formaParticular.get('appat').enable();
@@ -186,6 +274,7 @@ export class DialogDetalleReferidoComponent {
             this.formaParticular.get('correo').enable();
             this.formaParticular.get('telefono').enable();
             this.formaParticular.get('rfc').enable();
+            this.formaParticular.get('idSucursal').enable();
         }
     }
 
@@ -200,6 +289,7 @@ export class DialogDetalleReferidoComponent {
             this.formaPyme.get('telefono').disable();
             this.formaPyme.get('correo').disable();
             this.formaPyme.get('rfc').disable();
+            this.formaPyme.get('idSucursal').disable();
         } else {
             this.formaPyme.get('nombre').enable();
             this.formaPyme.get('appat').enable();
@@ -209,6 +299,7 @@ export class DialogDetalleReferidoComponent {
             this.formaPyme.get('telefono').enable();
             this.formaPyme.get('correo').enable();
             this.formaPyme.get('rfc').enable();
+            this.formaPyme.get('idSucursal').enable();
         }
     }
 
@@ -246,5 +337,25 @@ export class DialogDetalleReferidoComponent {
         return {
             fechaInvalida:true
         }
+    }
+
+    public verDetalleSucursal($sucursal:string){
+        let sucursales:any[] = [];
+
+        if (this.data.referido.tipo == this.TIPO_PARTICULAR) {
+            sucursales = this.sucursalesParticular;
+        } else if (this.data.referido.tipo == this.TIPO_PYME) {
+            sucursales = this.sucursalesPyme;
+        }
+
+        for (let sucursal of sucursales) {
+            if (sucursal.clave == $sucursal) {
+                this.dialog.open(DialogDetalleSucursalComponent, {
+                    data: { 'sucursal': sucursal },
+                    disableClose: true
+                });
+                break;
+            }
+        }        
     }
 }
