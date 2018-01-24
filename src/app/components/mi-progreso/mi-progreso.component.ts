@@ -52,6 +52,32 @@ export class MiProgresoComponent {
                     }
                 });
                 break;
+            case 4:
+                this.dialog.open(DialogDetallePromocionComponent, {
+                    data: {
+                        'tipoPromocion': tipoPromocion,
+                        'titulo': 'Rifa por 10 boleto dobles para el Gran Premio',
+                        'mensaje': 'Cada mes, lo empleados que haya traido por lo memos 2 clientes, entrarán a una rifa por 10 boletos dobles para el Gran Premio',
+                        'vigencia': 'Tienes hasta el 30 de junio',
+                        'totalClientes': 2,
+                        'totalReferidos': 4,
+                        'puesto': 0
+                    }
+                });
+                break;
+            case 5:
+                this.dialog.open(DialogDetallePromocionComponent, {
+                    data: {
+                        'tipoPromocion': tipoPromocion,
+                        'titulo': 'Rifa por 10 boleto dobles para el Gran Premio',
+                        'mensaje': 'Cada mes, lo empleados que haya traido por lo memos 2 clientes, entrarán a una rifa por 10 boletos dobles para el Gran Premio',
+                        'vigencia': 'Tienes hasta el 30 de junio',
+                        'totalClientes': 2,
+                        'totalReferidos': 4,
+                        'puesto': 0
+                    }
+                });
+                break;
         }
     }
 }

@@ -38,12 +38,7 @@ export class DialogNuevoReferidoComponent implements OnInit{
     public TIPO_PYME:number = environment.TIPO_PYME;
 
     public regiones:any[] = [];
-    public regionSeleccionada:string = '';
-
     public zonas:any[] = [];
-    public zonaSeleccionada:string = '';
-    public sucursalSeleccionada:string = '';
-
     public sucursales:any[] = [];
         
     constructor(@Inject(MAT_DIALOG_DATA) public data: any,
@@ -77,8 +72,12 @@ export class DialogNuevoReferidoComponent implements OnInit{
                                             Validators.required,
                                             Validators.pattern("^[0-9]+$")
                                             ]),
-            'rfc': new FormControl('' , []),
-            'idSucursal': new FormControl('' ,  [])
+            'rfc': new FormControl('' , [
+                                        Validators.pattern("[a-zA-Z]{3,4}(\\d{6})[A-Za-z|\\d]{0,3}?")
+                                        ]),
+            'idSucursal': new FormControl('' ,  [
+                                        Validators.required
+                                        ])
         });
 
         this.formaPyme = new FormGroup({
@@ -106,8 +105,12 @@ export class DialogNuevoReferidoComponent implements OnInit{
                                             Validators.required,
                                             Validators.pattern("^[0-9]+$")
                                             ]),
-            'rfc': new FormControl('' ,  []),
-            'idSucursal': new FormControl('' ,  [])
+            'rfc': new FormControl('' ,  [
+                                            Validators.pattern("[a-zA-Z]{3,4}(\\d{6})[A-Za-z|\\d]{0,3}?")
+                                        ]),
+            'idSucursal': new FormControl('' ,  [
+                                                Validators.required
+                                                ])
         });
     }
 
@@ -188,9 +191,9 @@ export class DialogNuevoReferidoComponent implements OnInit{
                         });
     }
 
-    public getZonas(idRegion: string) {
+    public getZonas($idRegion:string) {
         let token = this.usuarioFirmado.token;
-        this.referidosService.getZonas(idRegion, token)
+        this.referidosService.getZonas($idRegion, token)
                         .subscribe(res => {
                             if (res.exitoso) {
                                 this.zonas = res.datos;
@@ -203,9 +206,9 @@ export class DialogNuevoReferidoComponent implements OnInit{
                         });
     }
 
-    public getSucursales(idZona: string) {
+    public getSucursales($idZona:string) {
         let token = this.usuarioFirmado.token;
-        this.referidosService.getSucursales(idZona, token)
+        this.referidosService.getSucursales($idZona, token)
                         .subscribe(res => {
                             if (res.exitoso) {
                                 this.sucursales = res.datos;
@@ -254,9 +257,9 @@ export class DialogNuevoReferidoComponent implements OnInit{
         }
     }
 
-    public verDetalleSucursal(){
+    public verDetalleSucursal($sucursal:string){
         for (let sucursal of this.sucursales) {
-            if (sucursal.clave == this.sucursalSeleccionada) {
+            if (sucursal.clave == $sucursal) {
                 this.dialog.open(DialogDetalleSucursalComponent, {
                     data: { 'sucursal': sucursal },
                     disableClose: true
