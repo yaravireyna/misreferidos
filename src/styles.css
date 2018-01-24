@@ -42,6 +42,10 @@
     src: url('assets/fonts/OpenSans-Regular.ttf');
     src: local('☺'), url('assets/fonts/OpenSans-Regular.ttf') format('truetype')
 }
+
+*:focus {
+    outline: none !important;
+}
     
 #loader mat-progress-spinner{
     margin: 20px auto;    

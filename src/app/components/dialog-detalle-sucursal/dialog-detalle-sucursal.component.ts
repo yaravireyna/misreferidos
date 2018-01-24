@@ -8,7 +8,12 @@ import { MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./dialog-detalle-sucursal.component.css']
 })
 export class DialogDetalleSucursalComponent {
+  public zoomMapa:number = 17;
+  public latitud: number;
+  public longitud: number;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
-
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+      this.latitud = parseFloat(data.sucursal.latitud);
+      this.longitud = parseFloat(data.sucursal.longitud);
+  }
 }

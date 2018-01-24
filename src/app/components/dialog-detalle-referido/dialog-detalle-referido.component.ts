@@ -53,7 +53,6 @@ export class DialogDetalleReferidoComponent implements OnInit{
                 public dialog: MatDialog,
                 public snackBar: MatSnackBar) { 
         this.usuarioFirmado = this.sesionService.getUsuarioFirmado();
-        console.log(data);
         if (data.referido.tipo == this.TIPO_PARTICULAR) {
             this.formaParticular = new FormGroup({
                 'nombre': new FormControl({value: data.referido.nombre, disabled: this.isDisabledCamposParticular},  [
@@ -350,6 +349,12 @@ export class DialogDetalleReferidoComponent implements OnInit{
 
         for (let sucursal of sucursales) {
             if (sucursal.clave == $sucursal) {
+                if (this.data.referido.tipo == this.TIPO_PARTICULAR) {
+                    this.formaParticular.get('idSucursal').setValue($sucursal);
+                } else if (this.data.referido.tipo == this.TIPO_PYME) {
+                    this.formaPyme.get('idSucursal').setValue($sucursal);
+                }
+
                 this.dialog.open(DialogDetalleSucursalComponent, {
                     data: { 'sucursal': sucursal },
                     disableClose: true

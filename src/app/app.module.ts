@@ -14,6 +14,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { AgmCoreModule } from '@agm/core';
 
 //Rutas
 import { APP_ROUTING }  from './app.routes'
@@ -68,7 +69,10 @@ import { AutenticacionGuardService } from './services/referidos/autenticacion-gu
     MatDialogModule,
     MatSelectModule,
     MatSnackBarModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAZmhdizMeixXQbmZu1qySmMCNh3hxZlhg'
+    })
   ],
   providers: [ 
                ReferidosService,

@@ -6,11 +6,19 @@
         <h6 class="text-center"><strong>Detalle referido</strong></h6>
     </div>
     <div class="col-2">
-        <a (click)="editarCamposParticular()" *ngIf="data.referido.tipo == TIPO_PARTICULAR && isDisabledCamposParticular"><i class="icono text-danger icon-edit"></i></a>
-        <a (click)="editarCamposPyme()" *ngIf="data.referido.tipo == TIPO_PYME && isDisabledCamposPyme"><i class="icono text-danger icon-edit"></i></a>
+        <a (click)="editarCamposParticular()" *ngIf="data.referido.tipo == TIPO_PARTICULAR && isDisabledCamposParticular && ! isParticular"><i class="icono text-danger icon-edit"></i></a>
+        <a (click)="editarCamposPyme()" *ngIf="data.referido.tipo == TIPO_PYME && isDisabledCamposPyme && ! isPyme"><i class="icono text-danger icon-edit"></i></a>
 
-        <a (click)="guardaReferidoParticular()" *ngIf="data.referido.tipo == TIPO_PARTICULAR && ! isDisabledCamposParticular"><i class="icono text-danger icon-validation-2"></i></a>
-        <a (click)="guardaReferidoPyme()" *ngIf="data.referido.tipo == TIPO_PYME && ! isDisabledCamposPyme"><i class="icono text-danger icon-validation-2"></i></a>
+        <a (click)="guardaReferidoParticular()" *ngIf="data.referido.tipo == TIPO_PARTICULAR && ! isDisabledCamposParticular && ! isParticular"><i class="icono text-danger icon-validation-2"></i></a>
+        <a (click)="guardaReferidoPyme()" *ngIf="data.referido.tipo == TIPO_PYME && ! isDisabledCamposPyme && ! isPyme"><i class="icono text-danger icon-validation-2"></i></a>
+
+        <mat-progress-spinner
+            *ngIf="isParticular || isPyme"
+            [diameter]="35"
+            color="warn"
+            mode="indeterminate"
+            value="50">
+        </mat-progress-spinner>
     </div>
 </div>
 <mat-dialog-content>
@@ -107,15 +115,16 @@
                 </mat-select>
             </mat-form-field>
             <mat-form-field class="componente-captura-referido">
-                <mat-select placeholder="* Sucursal" formControlName="idSucursal" (selectionChange)="verDetalleSucursal(sucursalParticular.value)" #sucursalParticular>
+                <mat-select [disabled]="isDisabledCamposParticular" placeholder="* Sucursal" (selectionChange)="verDetalleSucursal(sucursalParticular.value)" #sucursalParticular value="{{data.referido.sucursal}}">
                     <mat-option *ngFor="let sucursal of sucursalesParticular" [value]="sucursal.clave">
                     {{sucursal.descripcion}}
                     </mat-option>
                 </mat-select>
                 <mat-error *ngIf="formaParticular.get('idSucursal').errors?.required">
                     Sucursal <strong>requerida</strong>
-                </mat-error>
+                </mat-error>                
             </mat-form-field>
+            <input type="hidden" formControlName="idSucursal">
             <input type="hidden" formControlName="id">
         </form>            
     </div>
@@ -193,7 +202,7 @@
                 </mat-select>
             </mat-form-field>
             <mat-form-field class="componente-captura-referido">
-                <mat-select placeholder="* Sucursal" formControlName="idSucursal" (selectionChange)="verDetalleSucursal(sucursalPyme.value)" #sucursalPyme value="{{data.referido.sucursal}}">
+                <mat-select [disabled]="isDisabledCamposPyme" placeholder="* Sucursal" (selectionChange)="verDetalleSucursal(sucursalPyme.value)" #sucursalPyme value="{{data.referido.sucursal}}">
                     <mat-option *ngFor="let sucursal of sucursalesPyme" [value]="sucursal.clave">
                     {{sucursal.descripcion}}
                     </mat-option>
@@ -202,6 +211,7 @@
                     Sucursal <strong>requerida</strong>
                 </mat-error>
             </mat-form-field>
+            <input type="hidden" formControlName="idSucursal">
             <input type="hidden" formControlName="id">        
         </form>            
     </div>
