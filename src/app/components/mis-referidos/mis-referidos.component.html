@@ -16,7 +16,7 @@
                     </div>
                     <div *ngIf="referidosParticular.length > 0">
                         <div class="mis-referidos">
-                            <ul class="list-group">
+                            <ul class="list-group font-misRferidos-gruop">
                                 <li class="list-group-item" *ngFor="let referido of referidosParticular; let i = index;" [ngClass]="{'lista-referido-par': i%2 == 0}">
                                     <div (click)="muestraDetalle(referido)" *ngIf="referido.tipo == TIPO_PARTICULAR">{{referido.nombre}} {{referido.apPat}} {{referido.apMat}} <span class="float-right puntaje"><i class="icono icon-arrownext-1"></i></span></div>
                                 </li>   
