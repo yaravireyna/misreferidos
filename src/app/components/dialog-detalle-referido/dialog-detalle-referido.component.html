@@ -3,7 +3,7 @@
         <a (click)="cerrar()"><i class="icono icon-arrowprev-1 text-danger"></i></a>
     </div>
     <div class="col-8">
-        <h6 class="text-center"><strong>Detalle referido</strong></h6>
+        <h6 class="text-center font-titulo-detalleReferido">Detalle referido</h6>
     </div>
     <div class="col-2">
         <a (click)="editarCamposParticular()" *ngIf="data.referido.tipo == TIPO_PARTICULAR && isDisabledCamposParticular && ! isParticular"><i class="icono text-danger icon-edit"></i></a>
