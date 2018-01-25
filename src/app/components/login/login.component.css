@@ -25,7 +25,8 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
+    display: block;
+    text-align: center;
 }
 
 #login-logo > h1 {
@@ -34,6 +35,21 @@
     letter-spacing: 0.93px;
     margin-left: 32px
 }
+
+#login-logo h1 {
+    font-size: 80px;
+    padding-top: 140px;
+    margin: 0px;
+    
+}
+
+#login-logo h2 {
+    font-size:15px;
+    color: white;
+    margin: 0px;
+    
+}
+
 
 .componente-login-form {
     margin-top: 15px;

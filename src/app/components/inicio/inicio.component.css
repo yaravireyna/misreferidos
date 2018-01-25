@@ -76,6 +76,7 @@
 .datos-principales {
     margin: 0;
     padding: 0;
+    align-content: stretch;
 }
 
 .inicio-botones {
@@ -107,7 +108,11 @@
     text-align: center;
     margin-top: 15px;
     margin-bottom: 10px;
-   
+}
+
+.gris {
+    color: #b2b2b2;
+    align-content: stretch;
 }
 
 mat-button-toggle {
