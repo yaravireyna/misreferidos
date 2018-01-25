@@ -15,7 +15,14 @@
 .imagen {
     height: 120px;
     align-content: center;
+    text-align: center;
 }  
+
+.imagen h1 {
+    font-size: 70px;
+    color: #dacfcf;
+    padding-top: 25px;
+}
 
 .img-premio {
     width: 100%;

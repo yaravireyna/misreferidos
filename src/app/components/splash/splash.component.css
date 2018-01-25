@@ -6,6 +6,7 @@
 
 #splash-container {
     background: #EC0000;
+    /* background-image: url("/assets/img/img_splashscreen.svg"); */
     color: #FFFFFF;
     position: absolute;
 }
