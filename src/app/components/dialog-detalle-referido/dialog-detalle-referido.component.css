@@ -13,6 +13,7 @@
 .descripcion-estado {
     color: #ec0000;
     font-size: 12px;
+    font-family: OpenSans-SemiBold;
 }
 
 .vertical-center {
@@ -79,4 +80,23 @@
     font-size: 14px;
     color: #FFFFFF;
     text-align: center;
+}
+
+.mat-form-field-infix {
+        font-family: OpenSans-Regular;
+}
+
+.mat-form-field {
+    font-family: OpenSans-Regular !important;
+    font-size: inherit;
+    font-weight: 500;
+    line-height: 1.125;
+}
+
+
+.font-detallereferido-input {
+    font-family: OpenSans-Regular;
+}
+.font-titulo-detalleReferido {
+    font-family: OpenSans-SemiBold;
 }

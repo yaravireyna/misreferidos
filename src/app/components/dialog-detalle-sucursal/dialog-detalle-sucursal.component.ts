@@ -11,9 +11,14 @@ export class DialogDetalleSucursalComponent {
   public zoomMapa:number = 17;
   public latitud: number;
   public longitud: number;
+  public isMapaCargando:boolean = true;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
       this.latitud = parseFloat(data.sucursal.latitud);
       this.longitud = parseFloat(data.sucursal.longitud);
+  }
+
+  public mapaCargado($event) {
+      this.isMapaCargando = false;
   }
 }

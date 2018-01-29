@@ -1,3 +1,7 @@
-agm-map {
+#loader-mapa {
+    margin: auto;
+}
+
+.height-mapa {
     height: 250px;
 }
