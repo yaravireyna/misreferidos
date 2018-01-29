@@ -5,7 +5,9 @@
         [longitude]="longitud"
         [zoom]="zoomMapa"
         [disableDefaultUI]="false"
-        [zoomControl]="true">
+        [zoomControl]="true"
+        (mapReady) = "mapaCargado($event)"
+        [ngClass] = "{'height-mapa': ! isMapaCargando}">
         <agm-marker
             [latitude]="latitud"
             [longitude]="longitud">
@@ -14,6 +16,15 @@
             </agm-info-window>
         </agm-marker>
     </agm-map>
+    <div *ngIf="isMapaCargando">
+        <mat-progress-spinner
+            color="warn"
+            mode="indeterminate"
+            value="50"
+            id="loader-mapa">
+        </mat-progress-spinner>
+        <p class="text-center">Cargando mapa...</p>
+    </div>
     <p><strong>Dirección:</strong> {{data.sucursal.direccion}}</p>
     <p><strong>Disponibilidad: </strong> {{data.sucursal.horario}}</p>
     <p><strong>Contacto: </strong> {{data.sucursal.telefono}}</p>

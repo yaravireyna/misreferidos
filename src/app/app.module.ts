@@ -32,6 +32,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { DialogBasesComponent } from './components/dialog-bases/dialog-bases.component';
 import { DialogDetallePromocionComponent } from './components/dialog-detalle-promocion/dialog-detalle-promocion.component';
 import { DialogDetalleSucursalComponent } from './components/dialog-detalle-sucursal/dialog-detalle-sucursal.component';
+import { DialogTerminosCondicionesComponent } from './components/dialog-terminos-condiciones/dialog-terminos-condiciones.component';
 
 //Referidos Services
 import { ReferidosService } from './services/referidos/referidos.service';
@@ -50,7 +51,8 @@ import { AutenticacionGuardService } from './services/referidos/autenticacion-gu
     DialogDetalleReferidoComponent,
     DialogBasesComponent,
     DialogDetallePromocionComponent,
-    DialogDetalleSucursalComponent
+    DialogDetalleSucursalComponent,
+    DialogTerminosCondicionesComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +87,8 @@ import { AutenticacionGuardService } from './services/referidos/autenticacion-gu
                     DialogDetalleReferidoComponent,
                     DialogBasesComponent,
                     DialogDetallePromocionComponent,
-                    DialogDetalleSucursalComponent
+                    DialogDetalleSucursalComponent,
+                    DialogTerminosCondicionesComponent
                    ]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { DialogNuevoReferidoComponent } from 'app/components/dialog-nuevo-referido/dialog-nuevo-referido.component';
+import { DialogTerminosCondicionesComponent } from 'app/components/dialog-terminos-condiciones/dialog-terminos-condiciones.component';
 import { DialogBasesComponent } from 'app/components/dialog-bases/dialog-bases.component';
 
 import { MatDialog } from '@angular/material';
@@ -9,8 +10,6 @@ import { SesionService } from 'app/services/referidos/sesion.service';
 
 import { UsuarioFirmado } from 'app/interfaces/usuario-firmado'
 import { environment } from 'environments/environment';
-
-
 
 @Component({
   selector: 'app-inicio',
@@ -105,6 +104,12 @@ export class InicioComponent implements OnInit{
         dialogRef.afterClosed().subscribe(recargaMisReferidos => {
             if (recargaMisReferidos) {
                 this.recargaMisReferidos = recargaMisReferidos;
+                setTimeout(() => {
+                    this.dialog.open(DialogTerminosCondicionesComponent, {
+                        data: {},
+                        disableClose: true
+                    });
+                }, 1000);
             }
         });
   } 
