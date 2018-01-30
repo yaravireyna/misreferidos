@@ -78,3 +78,7 @@
 /deep/.mat-tab-group.mat-primary .mat-tab-label:focus, /deep/.mat-tab-group.mat-primary .mat-tab-link:focus, /deep/.mat-tab-nav-bar.mat-primary .mat-tab-label:focus, /deep/.mat-tab-nav-bar.mat-primary .mat-tab-link:focus {
     background-color:#FFFFFF;
 }
+
+::ng-deep .mat-tab-labels{
+    justify-content: center; /* align items in Main Axis */
+}
