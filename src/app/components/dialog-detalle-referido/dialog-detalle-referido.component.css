@@ -30,15 +30,13 @@
 }
 
 .circle {
-    width: 25%;
-    height: 25%;
+    width: 24%;
     text-align: center;
     border: 3px solid #F2F2F2 !important;
     border-radius: 50%;
-    padding: 5px;
-   
+    padding: 10px;
+    height: 47px;
 }
-
 .circle-active {
     color: #ec0000;
     background: #fff;
@@ -52,7 +50,7 @@
 }
 
 .icon-lg {
-    font-size: 18px !important;
+    font-size: 20px;
 }
 
 .line {
@@ -103,3 +101,12 @@
 .font-titulo-detalleReferido {
     font-family: OpenSans-SemiBold;
 }
+
+@media (max-width: 320px) { 
+
+    .circle {
+            width: 50%;
+        }
+
+
+ }
