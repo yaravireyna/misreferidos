@@ -2,8 +2,9 @@
     margin-bottom: 30px;
 }
 
-#estados-iconos{
-    margin-left: 4%; 
+#estados-iconos {
+    /* margin-left: 4%;  */
+    margin: 0px;
 }
 
 .componente-captura-referido {
@@ -16,6 +17,8 @@
     font-family: OpenSans-SemiBold;
 }
 
+
+
 .vertical-center {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -23,6 +26,7 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    width: 100%;
 }
 
 .circle {
@@ -53,7 +57,7 @@
 }
 
 .line {
-    width: 64px;
+    width: 30px;
     height: 3px;
     background: #F2F2F2;
 }
