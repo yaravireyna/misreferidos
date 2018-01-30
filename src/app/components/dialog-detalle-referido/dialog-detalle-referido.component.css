@@ -33,11 +33,10 @@
     width: 25%;
     height: 25%;
     text-align: center;
-    /* font-size: 14px; 
-    line-height: 1.42; */
     border: 3px solid #F2F2F2 !important;
     border-radius: 50%;
-    /* cursor: pointer; */
+    padding: 5px;
+   
 }
 
 .circle-active {
