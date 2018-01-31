@@ -101,12 +101,21 @@
 .font-titulo-detalleReferido {
     font-family: OpenSans-SemiBold;
 }
-
+/*iphone 5*/
 @media (max-width: 320px) { 
 
     .circle {
             width: 50%;
         }
-
-
  }
+/*iphone 6,7,8 plus */
+@media (min-width: 414px) { 
+                 
+    .circle  {
+            height: 57px;
+    }
+    .icon-lg {
+            font-size: 25px;
+    }
+
+}
